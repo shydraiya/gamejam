@@ -1,5 +1,7 @@
 using TMPro;
+
 using Unity.Mathematics;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -7,6 +9,8 @@ public class CameraModeController : MonoBehaviour
 {
     public Transform player;
     public PlayerMoveController playerMove;
+
+    public bool IsFPS => isFPS;
 
     [Header("Toggle Key")]
     public KeyCode toggleKey = KeyCode.Space;
@@ -97,7 +101,7 @@ public class CameraModeController : MonoBehaviour
 
         pitch = 0f;
 
-        if(crosshairUI) crosshairUI.SetActive(false);
+        if (crosshairUI) crosshairUI.SetActive(false);
     }
 
     void ApplyFPS()
@@ -116,13 +120,13 @@ public class CameraModeController : MonoBehaviour
     {
         float mx = Input.GetAxisRaw("Mouse X") * mouseSensitivity;
         float my = Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
-    
+
         // yaw를 누적 방식으로 관리하는 게 안전합니다(플레이어 회전값을 직접 더하는 것도 OK)
         player.Rotate(Vector3.up * mx, Space.World);
-    
+
         pitch -= my;
         pitch = Mathf.Clamp(pitch, -80f, 80f);
-    
+
         // 핵심: yaw(플레이어) * pitch(카메라)
         Quaternion yawRot = Quaternion.Euler(0f, player.eulerAngles.y, 0f);
         Quaternion pitchRot = Quaternion.Euler(pitch, 0f, 0f);
@@ -138,20 +142,20 @@ public class CameraModeController : MonoBehaviour
         // 디버그용 레이 시각화(씬 뷰에서 보임)
         Debug.DrawRay(origin, dir * shootRange, Color.yellow, 0.5f);
 
-        // if (Physics.Raycast(origin, dir, out RaycastHit hit, shootRange, hitMask, QueryTriggerInteraction.Ignore))
-        // {
-        //     Debug.Log($"HIT: {hit.collider.name} at {hit.point}");
+        if (Physics.Raycast(origin, dir, out RaycastHit hit, shootRange, hitMask, QueryTriggerInteraction.Ignore))
+        {
+            Debug.Log($"HIT: {hit.collider.name} at {hit.point}");
 
-        //     // 1) 가장 단순한 데미지 처리: Health 컴포넌트가 있으면 깎기
-        //     var health = hit.collider.GetComponentInParent<Health>();
-        //     if (health != null)
-        //     {
-        //         health.TakeDamage(damage);
-        //     }
+            // 1) 가장 단순한 데미지 처리: Health 컴포넌트가 있으면 깎기
+            var health = hit.collider.GetComponentInParent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
 
-        //     // 2) “강한 적”만 약점(WeakSpot) 맞춰야 데미지 주는 식으로 확장 가능
-        //     // 예: hit.collider.CompareTag("WeakSpot") 체크 등
-        // }
+            // 2) “강한 적”만 약점(WeakSpot) 맞춰야 데미지 주는 식으로 확장 가능
+            // 예: hit.collider.CompareTag("WeakSpot") 체크 등
+        }
     }
 
 }
