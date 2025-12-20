@@ -64,10 +64,10 @@ public class CameraModeController : MonoBehaviour
             FPSLook();
             transform.position = player.position + fpsOffset;
 
-            if (Input.GetKeyDown(fireKey)){
-                FireRay();
-                Debug.Log("sniping!");
-            }
+            // if (Input.GetKeyDown(fireKey)){
+            //     FireRay();
+            //     Debug.Log("sniping!");
+            // }
         }
     }
 
@@ -140,7 +140,7 @@ public class CameraModeController : MonoBehaviour
         // 카메라 정중앙 기준
         Vector3 origin = transform.position;
         Vector3 dir = transform.forward;
-
+        Debug.Log("fire 2");
         // 디버그용 레이 시각화(씬 뷰에서 보임)
         Debug.DrawRay(origin, dir * shootRange, Color.yellow, 0.5f);
 
@@ -148,7 +148,6 @@ public class CameraModeController : MonoBehaviour
         {
             Debug.Log($"HIT: {hit.collider.name} at {hit.point}");
 
-            // 1) 가장 단순한 데미지 처리: Health 컴포넌트가 있으면 깎기
             Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
