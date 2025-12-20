@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyConfig config;
+    [SerializeField] private CameraModeController cameraMode;
 
     protected float Hp { get; private set; }
     protected EnemyConfig Config => config;
@@ -13,9 +14,13 @@ public abstract class Enemy : MonoBehaviour
         OnSpawned();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isFPS)
     {
-        Hp -= damage;
+
+        // shotgun mode = Multiplier applied.
+        float multiplier = (!isFPS) ? config.areaDamageMultiplier : 1;
+        Hp -= damage * multiplier;
+        Debug.Log($"[Enemy] Dealt {damage * multiplier}, fps:{isFPS}");
         if (Hp <= 0f) Die();
     }
 

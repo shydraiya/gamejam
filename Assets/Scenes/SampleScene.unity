@@ -783,6 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
+  cameraMode: {fileID: 0}
 --- !u!1 &964022559
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
+  cameraMode: {fileID: 0}
 --- !u!1 &1276346744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
+  cameraMode: {fileID: 0}
 --- !u!1 &1617523832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
+  cameraMode: {fileID: 0}
 --- !u!1 &2117576541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da546fedc46e664ebdde682315ac129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shotgun
+  cameraMode: {fileID: 330585548}
   bulletPrefab: {fileID: 705210549380223954, guid: 6be2ca5962aa61447a8e3bde8a8e6887, type: 3}
   fireInterval: 0.6
   pellets: 6
@@ -1406,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d882c533913524e8988a19e52336f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  cameraMode: {fileID: 330585548}
   bulletPrefab: {fileID: 705210549380223954, guid: 6be2ca5962aa61447a8e3bde8a8e6887, type: 3}
   fireInterval: 0.6
   pellets: 1
@@ -1562,6 +1568,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1091386726004956631, guid: a0f151bc0d025944baadde796a96c1c9, type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: d03a1d2b9f5f8b74eb83fd2bd34d2530, type: 2}
+    - target: {fileID: 1091386726004956631, guid: a0f151bc0d025944baadde796a96c1c9, type: 3}
+      propertyPath: bossPrefab
+      value: 
+      objectReference: {fileID: 7156508450226049070, guid: 0e38127e9a0361f468ef4becd915d698, type: 3}
     - target: {fileID: 6421521576763845352, guid: a0f151bc0d025944baadde796a96c1c9, type: 3}
       propertyPath: m_Name
       value: Spawner

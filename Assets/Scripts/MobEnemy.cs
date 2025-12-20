@@ -14,15 +14,6 @@ public class MobEnemy : Enemy
         }
     }
 
-    private void Inflict()
-    {
-        this.TakeDamage(1f);
-    }
-
-    // private void OnMouseOver()
-    // {
-    //     Inflict();
-    // }
 
     private void Update()
     {
