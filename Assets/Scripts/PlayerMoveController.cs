@@ -45,7 +45,7 @@ public class PlayerMoveController : MonoBehaviour
         if (!moveBasis) return;
 
         Vector3 forward = moveBasis.forward; forward.y = 0f; forward.Normalize();
-        Vector3 right   = moveBasis.right;   right.y = 0f;   right.Normalize();
+        Vector3 right = moveBasis.right; right.y = 0f; right.Normalize();
 
         Vector3 move = forward * v + right * h;
         if (move.sqrMagnitude > 1f) move.Normalize();
