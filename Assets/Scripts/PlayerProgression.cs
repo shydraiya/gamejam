@@ -25,7 +25,6 @@ public class PlayerProgression : MonoBehaviour
 
     void Start()
     {
-        OnLevelUp += levelUpUI.Show;
     }
 
 

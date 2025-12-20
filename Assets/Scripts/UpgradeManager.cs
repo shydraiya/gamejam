@@ -56,7 +56,7 @@ public class UpgradeManager : MonoBehaviour
                 break;
 
             case UpgradeType.MoveSpeed:
-                stats.moveSpeedMultiplier += 1.0f;
+                stats.AddMoveSpeedMultiplier(0.10f);
                 break;
         }
     }
