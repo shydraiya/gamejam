@@ -18,7 +18,7 @@ public class PlayerWeaponController : MonoBehaviour
     public Vector3 AimDirection { get; private set; } = Vector3.forward;
 
     [Header ("Bomb")]
-    [SerializeField] private float killRadius = 5f;
+    [SerializeField] private float killRadius = 8f;
     [SerializeField] private LayerMask enemyLayer;
 
     public void KillEnemiesInRange()
