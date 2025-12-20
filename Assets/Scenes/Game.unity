@@ -2648,7 +2648,7 @@ MonoBehaviour:
   fireInterval: 0.6
   pellets: 15
   spreadAngle: 30
-  bulletSpeed: 14
+  bulletSpeed: 50
   damagePerPellet: 12
   spawnHeight: 0
   spawnForwardOffset: 1

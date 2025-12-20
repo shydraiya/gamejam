@@ -29,28 +29,48 @@ public class PlayerMoveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal"); // A/D
-        float v = Input.GetAxisRaw("Vertical");   // W/S
-
-        if (!isFPS)
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+    
+        const float dead = 0.01f;
+        if (Mathf.Abs(h) < dead) h = 0f;
+        if (Mathf.Abs(v) < dead) v = 0f;
+    
+        // 입력 없으면 완전 정지(물리 누적/미세 입력 방지)
+        if (h == 0f && v == 0f)
         {
-            float topMoveSpeed = stats.MoveSpeed;
-            // 탑뷰: 월드 기준 이동
-            Vector3 input = new Vector3(h, 0f, v);
-            if (input.sqrMagnitude > 1f) input.Normalize();
-            rb.MovePosition(rb.position + input * topMoveSpeed * Time.fixedDeltaTime);
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             return;
         }
-
-        // FPS: 카메라 방향 기준 이동 (키보드는 회전/시점에 영향 없음)
+    
+        float speed = stats != null ? stats.MoveSpeed : 6f;
+    
+        if (!isFPS)
+        {
+            Vector3 input = new Vector3(h, 0f, v);
+            if (input.sqrMagnitude > 1f) input.Normalize();
+            rb.MovePosition(rb.position + input * speed * Time.fixedDeltaTime);
+            return;
+        }
+    
         if (!moveBasis) return;
-        float fpsMoveSpeed = stats.MoveSpeed * 0.6f;
-        Vector3 forward = moveBasis.forward; forward.y = 0f; forward.Normalize();
-        Vector3 right = moveBasis.right; right.y = 0f; right.Normalize();
-
+    
+        float fpsMoveSpeed = speed * 0.6f;
+    
+        Vector3 forward = moveBasis.forward; forward.y = 0f;
+        Vector3 right = moveBasis.right; right.y = 0f;
+    
+        if (forward.sqrMagnitude < 0.0001f || right.sqrMagnitude < 0.0001f)
+            return;
+    
+        forward.Normalize();
+        right.Normalize();
+    
         Vector3 move = forward * v + right * h;
         if (move.sqrMagnitude > 1f) move.Normalize();
-
+    
         rb.MovePosition(rb.position + move * fpsMoveSpeed * Time.fixedDeltaTime);
     }
+
 }
