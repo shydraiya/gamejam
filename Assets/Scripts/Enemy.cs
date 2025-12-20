@@ -5,12 +5,15 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private EnemyConfig config;
     [SerializeField] private CameraModeController cameraMode;
 
+    PlayerProgression playerProgression;
+
     protected float Hp { get; private set; }
     protected EnemyConfig Config => config;
 
     protected virtual void Awake()
     {
         Hp = config.maxHp;
+        playerProgression = FindFirstObjectByType<PlayerProgression>();
         OnSpawned();
     }
 
@@ -27,6 +30,10 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Die()
     {
         OnDied();
+        if(playerProgression != null)
+        {
+            playerProgression.AddXP(config.xp_reward);
+        }
         Destroy(gameObject);
     }
 

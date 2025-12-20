@@ -18,6 +18,7 @@ public class MobBoss : Enemy
 
     protected override void OnDied()
     {
+        
         Debug.Log($"{name} died");
     }
 }

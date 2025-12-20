@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7579743440722424180}
   - component: {fileID: 5146666796637800861}
   - component: {fileID: 179027335775750531}
+  - component: {fileID: -4046290773095055463}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
   cameraMode: {fileID: 0}
+--- !u!114 &-4046290773095055463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839389548450981954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3de99e724a59947bf21c5d83a62162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnTouch
+  hitInterval: 0.5
+  config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
