@@ -13,7 +13,9 @@ public class EnemyDamageOnTouch : MonoBehaviour
         PlayerStats player = other.GetComponentInParent<PlayerStats>();
         if (player == null) return;
 
-        player.TakeDamage(config.mob_damage);
+        float dmgMultiplier = 1f + Mathf.Sqrt(Time.time) * 0.02f;
+
+        player.TakeDamage(config.mob_damage * dmgMultiplier);
         nextHitTime = Time.time + hitInterval;
     }
 }

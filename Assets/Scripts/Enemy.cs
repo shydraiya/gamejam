@@ -14,7 +14,9 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Awake()
     {
         damageFlash = GetComponent<DamageFlash>();
-        Hp = config.maxHp;
+
+        float hpMultiplier = 1f + Mathf.Sqrt(Time.time) * 0.02f;
+        Hp = config.maxHp * hpMultiplier;
         playerProgression = FindFirstObjectByType<PlayerProgression>();
         OnSpawned();
     }
