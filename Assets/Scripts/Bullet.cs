@@ -44,9 +44,9 @@ public class Bullet : MonoBehaviour
         if ((hitMask.value & layerBit) == 0)
             return;
 
-        var health = col.GetComponentInParent<Health>();
-        if (health != null){
-            health.TakeDamage(damage);
+        Enemy enemy = col.GetComponentInParent<Enemy>();
+        if (enemy != null){
+            enemy.TakeDamage(damage);
             Debug.Log($"bullet hit");
         }
     }

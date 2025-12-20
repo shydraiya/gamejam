@@ -19,10 +19,10 @@ public class MobEnemy : Enemy
         this.TakeDamage(1f);
     }
 
-    private void OnMouseOver()
-    {
-        Inflict();
-    }
+    // private void OnMouseOver()
+    // {
+    //     Inflict();
+    // }
 
     private void Update()
     {
