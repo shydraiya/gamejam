@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 using UnityEngine;
@@ -12,6 +13,17 @@ public class PlayerMoveController : MonoBehaviour
 
     Rigidbody rb;
     bool isFPS = false;
+
+    [Header("Dash")]
+    public KeyCode dashKey = KeyCode.LeftShift;
+    public float dashMultiplier = 3.0f;
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 0.8f;
+
+    [Header("Dash State")]
+    float dashEndTime = -1f;
+    float nextDashTime = 0f;
+    Vector3 lastMoveDir = Vector3.forward;
 
     void Awake()
     {
