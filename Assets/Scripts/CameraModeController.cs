@@ -147,10 +147,10 @@ public class CameraModeController : MonoBehaviour
             Debug.Log($"HIT: {hit.collider.name} at {hit.point}");
 
             // 1) 가장 단순한 데미지 처리: Health 컴포넌트가 있으면 깎기
-            var health = hit.collider.GetComponentInParent<Health>();
-            if (health != null)
+            Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
+            if (enemy != null)
             {
-                health.TakeDamage(damage);
+                enemy.TakeDamage(damage);
             }
 
             // 2) “강한 적”만 약점(WeakSpot) 맞춰야 데미지 주는 식으로 확장 가능
