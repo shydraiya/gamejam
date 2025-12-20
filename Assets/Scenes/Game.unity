@@ -2573,6 +2573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverController
   gameOverSceneName: GameOver
+  gameTimer: {fileID: 0}
+  timeTracker: {fileID: 0}
 --- !u!4 &1929205379
 Transform:
   m_ObjectHideFlags: 0
@@ -3008,7 +3010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XPTest
   progression: {fileID: 2117576554}
-  xpPerPress: 5
+  xpPerPress: 0
   testkey: 108
 --- !u!114 &2117576556
 MonoBehaviour:
