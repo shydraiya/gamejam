@@ -10,6 +10,8 @@ public class CameraModeController : MonoBehaviour
     public Transform player;
     public PlayerMoveController playerMove;
 
+    public bool IsFPS => isFPS;
+
     [Header("Toggle Key")]
     public KeyCode toggleKey = KeyCode.Space;
 

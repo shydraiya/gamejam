@@ -1,88 +1,57 @@
 using UnityEngine;
 
-public class TopViewShotgun : MonoBehaviour, IWeapon
+public class Shotgun : MonoBehaviour, IWeapon
 {
-    [Header("Tuning")]
-    public float fireInterval = 0.8f;
+    [Header("Prefab")]
+    public Bullet bulletPrefab;
+
+    [Header("Fire")]
+    public float fireInterval = 0.6f;
     public int pellets = 6;
-    public float spreadAngle = 18f;
-    public float range = 12f;
+    public float spreadAngle = 18f;      // 도 단위, Y축 기준 퍼짐
+    public float bulletSpeed = 14f;
     public float damagePerPellet = 12f;
 
-    [Header("Targeting")]
-    public float searchRadius = 15f;
-    public LayerMask enemyMask;
+    [Header("Spawn")]
+    public float spawnHeight = 0.6f;     // 바닥 박힘 방지
+    public float spawnForwardOffset = 0.5f;
 
+    [Header("Hit")]
+    public LayerMask hitMask = ~0;       // Enemy 레이어만 추천
+
+    PlayerWeaponController owner;
     bool active = true;
-    float timer = 0f;
+    float nextFireTime = 0f;
 
-    public void SetActive(bool a)
-    {
-        active = a;
-        timer = 0f; // 켤 때 즉시 발사 원하면 0, 지연 원하면 fireInterval로
-    }
+    public void SetOwner(PlayerWeaponController owner) => this.owner = owner;
+    public void SetActive(bool active) => this.active = active;
 
-    // 컨트롤러에서 "지금 당장 한 번 발사"를 시키고 싶으면 호출
     public void Fire()
     {
-        ShotgunFireOnce();
-    }
+        if (!active || owner == null || bulletPrefab == null) return;
+        if (Time.time < nextFireTime) return;
 
-    void Update()
-    {
-        if (!active) return;
+        // 탑뷰 샷건 전용: aimDir을 XZ 평면으로 투영
+        Vector3 baseDir = owner.AimDirection;
+        baseDir.y = 0f;
+        if (baseDir.sqrMagnitude < 0.0001f) return;
+        baseDir.Normalize();
 
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
-        {
-            ShotgunFireOnce();
-            timer = fireInterval;
-        }
-    }
-
-    void ShotgunFireOnce()
-    {
-        Vector3 origin = transform.position + Vector3.up * 0.6f;
-        Vector3 baseDir = GetAutoAimDirection(origin);
+        Vector3 origin = owner.transform.position + Vector3.up * spawnHeight + baseDir * spawnForwardOffset;
 
         for (int i = 0; i < pellets; i++)
         {
-            float t = (pellets == 1) ? 0f : (i / (pellets - 1f));
+            float t = (pellets == 1) ? 0.5f : (i / (pellets - 1f));
             float angle = Mathf.Lerp(-spreadAngle * 0.5f, spreadAngle * 0.5f, t);
+
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.up) * baseDir;
+            dir.Normalize();
 
-            Debug.DrawRay(origin, dir * range, Color.cyan, 0.1f);
-
-            if (Physics.Raycast(origin, dir, out RaycastHit hit, range, enemyMask, QueryTriggerInteraction.Ignore))
-            {
-                var health = hit.collider.GetComponentInParent<Health>();
-                if (health != null) health.TakeDamage(damagePerPellet);
-            }
-        }
-    }
-
-    Vector3 GetAutoAimDirection(Vector3 origin)
-    {
-        Collider[] hits = Physics.OverlapSphere(origin, searchRadius, enemyMask, QueryTriggerInteraction.Ignore);
-        if (hits == null || hits.Length == 0)
-            return Vector3.forward;
-
-        Transform nearest = null;
-        float best = float.MaxValue;
-
-        foreach (var c in hits)
-        {
-            float d = (c.transform.position - origin).sqrMagnitude;
-            if (d < best)
-            {
-                best = d;
-                nearest = c.transform;
-            }
+            // Bullet 생성 + 초기화
+            Bullet b = Instantiate(bulletPrefab, origin, Quaternion.LookRotation(dir, Vector3.up));
+            b.Init(dir * bulletSpeed, damagePerPellet, hitMask);
         }
 
-        Vector3 dir = (nearest.position - origin);
-        dir.y = 0f;
-        if (dir.sqrMagnitude < 0.001f) return Vector3.forward;
-        return dir.normalized;
+        nextFireTime = Time.time + fireInterval;
     }
 }
