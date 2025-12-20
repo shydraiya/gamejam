@@ -71,6 +71,7 @@ public class UpgradeManager : MonoBehaviour
                 break;
             
             case UpgradeType.Healing:
+                stats.AddHpRegen(1);
                 break;
         }
     }
