@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public void InstantKill(){
-        TakeDamage(100, false);
+        TakeDamage(1000000, false);
     }
 
     protected virtual void OnSpawned() { }
