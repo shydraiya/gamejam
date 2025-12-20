@@ -680,7 +680,7 @@ MonoBehaviour:
   toggleKey: 32
   topHeight: 7
   topOrthoSize: 7
-  fpsOffset: {x: 0, y: 1.6, z: 0}
+  fpsOffset: {x: 0, y: 0.6, z: 0}
   fpsFov: 60
   mouseSensitivity: 2
   crosshairUI: {fileID: 20140997}
@@ -2648,7 +2648,7 @@ MonoBehaviour:
   spreadAngle: 0
   bulletSpeed: 100
   damagePerPellet: 200
-  spawnHeight: 0
+  spawnHeight: 0.6
   spawnForwardOffset: 0.5
   hitMask:
     serializedVersion: 2
