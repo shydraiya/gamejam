@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb44f4aee228aa40b26960f4f4a4a5d, type: 3}
   m_Name: Spawner
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerConfig
-  spawnIntervalMob: 10
+  spawnIntervalMob: 30
   spawnIntervalMobCnt: 8
-  spawnIntervalBoss: 20
+  spawnIntervalBoss: 60
   spawnIntervalBossCnt: 1
   spawnRadius: 10
