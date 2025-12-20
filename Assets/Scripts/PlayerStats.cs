@@ -5,7 +5,7 @@ using System;
 public class PlayerStats : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float maxHP = 100f;
+    [SerializeField] public float maxHP = 100f;
     [SerializeField] private float hp = 100f;
 
     [Header("Movement")]

@@ -7,7 +7,10 @@ public enum UpgradeType
     SniperDamage,
     SniperFireRate,
     Heal,
-    MoveSpeed
+    MoveSpeed,
+    ShotgunPelletNum,
+    gainMaxHealth,
+    Healing
 }
 
 [Serializable]
