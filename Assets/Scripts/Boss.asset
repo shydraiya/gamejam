@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
   maxHp: 15
   moveSpeed: 0.5
-  contactDamage: 10
+  xp_reward: 1
+  mob_damage: 10
   areaDamageMultiplier: 0.001

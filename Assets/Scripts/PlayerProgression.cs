@@ -18,7 +18,7 @@ public class PlayerProgression : MonoBehaviour
         {
             xp -= xpToLevelUp;
             level++;
-            xpToLevelUp *= 1.25f;
+            xpToLevelUp *= 2.0f;
             OnLevelUp?.Invoke();
         }
     }
