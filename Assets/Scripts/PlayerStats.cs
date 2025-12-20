@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float baseMoveSpeed = 6f;
     [SerializeField] public float moveSpeedMultiplier = 1f;
 
+    private DamageFlash damageFlash;
     [SerializeField] private bool invulnerable = false;
     public bool Invulnerable => invulnerable;
 
@@ -32,6 +33,7 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
+        damageFlash = GetComponent<DamageFlash>();
         // 안전 초기화
         hp = Mathf.Clamp(hp, 0f, maxHP);
         OnHealthChanged?.Invoke(hp, maxHP);
@@ -54,7 +56,13 @@ public class PlayerStats : MonoBehaviour
         hp = Mathf.Max(0f, hp - amount);
         if (!Mathf.Approximately(prev, hp))
             OnHealthChanged?.Invoke(hp, maxHP);
+        // 체력 색 변경
+        float t = hp / maxHP;
+        Color baseColor = Color.Lerp(Color.red, Color.green, t);
+        damageFlash.SetBaseColor(baseColor);
 
+        // ⭐ 이 줄이 없으면 절대 안 깜빡임
+        damageFlash.Flash();
         if (hp <= 0f)
             OnDeath?.Invoke();
     }
