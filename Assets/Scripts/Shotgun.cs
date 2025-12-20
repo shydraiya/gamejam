@@ -24,7 +24,12 @@ public class Shotgun : MonoBehaviour, IWeapon
     bool active = true;
     float nextFireTime = 0f;
 
-    public void SetOwner(PlayerWeaponController owner) => this.owner = owner;
+    // private CameraShake shake;
+
+    public void SetOwner(PlayerWeaponController owner) { 
+        this.owner = owner;
+        // shake = owner.mainCam.GetComponent<CameraShake>();
+    }    
     public void SetActive(bool active) => this.active = active;
 
     public void Fire()
@@ -52,7 +57,7 @@ public class Shotgun : MonoBehaviour, IWeapon
             Bullet b = Instantiate(bulletPrefab, origin, Quaternion.LookRotation(dir, Vector3.up));
             b.Init(dir * bulletSpeed, damagePerPellet, hitMask, cameraMode);
         }
-
+        // if (shake) shake.Shake(amplitude: 1.0f, duration: 0.5f, frequency: 30f);
         nextFireTime = Time.time + fireInterval;
         SFXManager.Instance.PlaySFX(SFXManager.Instance.Shotgun);
     }
