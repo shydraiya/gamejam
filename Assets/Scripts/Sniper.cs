@@ -1,3 +1,5 @@
+using Mono.Cecil.Cil;
+
 using UnityEngine;
 
 public class Sniper : MonoBehaviour, IWeapon
@@ -17,7 +19,7 @@ public class Sniper : MonoBehaviour, IWeapon
 
     [Header("Spawn")]
     public float spawnHeight = 0.6f;     // 바닥 박힘 방지
-    public float spawnForwardOffset = 0.5f;
+    public float spawnForwardOffset = 2.5f;
 
     [Header("Hit")]
     public LayerMask hitMask = ~0;       // Enemy 레이어만 추천
@@ -28,7 +30,8 @@ public class Sniper : MonoBehaviour, IWeapon
 
     public void SetOwner(PlayerWeaponController owner) => this.owner = owner;
     public void SetActive(bool active) => this.active = active;
-
+    
+    
     public void Fire()
     {
         if (!active || owner == null || bulletPrefab == null) return;
@@ -40,7 +43,7 @@ public class Sniper : MonoBehaviour, IWeapon
         baseDir.Normalize();
 
         Vector3 origin = owner.transform.position + Vector3.up * spawnHeight + baseDir * spawnForwardOffset;
-
+        Debug.DrawRay(origin, Vector3.up * 0.2f, Color.green, 1f);
         for (int i = 0; i < pellets; i++)
         {
             float t = (pellets == 1) ? 0.5f : (i / (pellets - 1f));
@@ -48,7 +51,7 @@ public class Sniper : MonoBehaviour, IWeapon
 
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.up) * baseDir;
             dir.Normalize();
-
+            var ownerCol = owner.GetComponent<Collider>();
             // Bullet 생성 + 초기화
             Bullet b = Instantiate(bulletPrefab, origin, Quaternion.LookRotation(dir, Vector3.up));
             b.Init(dir * bulletSpeed, damagePerPellet, hitMask, cameraMode);

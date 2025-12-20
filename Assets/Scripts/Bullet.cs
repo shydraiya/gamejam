@@ -24,16 +24,16 @@ public class Bullet : MonoBehaviour
 
         rb.linearVelocity = velocity;
         isFPS = cameraMode.IsFPS;
-
+        // Physics.IgnoreCollision(GetComponent<Collider>(),owner);
         CancelInvoke(nameof(Die));
         Invoke(nameof(Die), lifeTime);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        ApplyDamageIfValid(collision.collider);
-        // Die(); // 어떤 충돌이든 무조건 사라짐
-    }
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     ApplyDamageIfValid(collision.collider);
+    //     Die(); // 어떤 충돌이든 무조건 사라짐
+    // }
 
     void OnTriggerEnter(Collider other)
     {

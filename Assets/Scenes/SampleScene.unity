@@ -2651,7 +2651,7 @@ MonoBehaviour:
   bulletSpeed: 14
   damagePerPellet: 12
   spawnHeight: 0
-  spawnForwardOffset: 0.5
+  spawnForwardOffset: 1
   hitMask:
     serializedVersion: 2
     m_Bits: 8
