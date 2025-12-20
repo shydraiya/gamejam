@@ -15,6 +15,9 @@ public class UpgradeManager : MonoBehaviour
         new UpgradeOption { type = UpgradeType.SniperFireRate, title="스나이퍼 재사용 -20%" },
         new UpgradeOption { type = UpgradeType.Heal, title="체력 회복" },
         new UpgradeOption { type = UpgradeType.MoveSpeed, title="이동속도 +10%" },
+        new UpgradeOption { type = UpgradeType.ShotgunPelletNum, title="샷건 탄환수 +2"},
+        new UpgradeOption { type = UpgradeType.gainMaxHealth, title="최대 체력 +30"},
+        new UpgradeOption { type = UpgradeType.Healing, title="지속 치유 +1/s"}
     };
 
     public List<UpgradeOption> GetRandomOptions(int count)
@@ -57,6 +60,17 @@ public class UpgradeManager : MonoBehaviour
 
             case UpgradeType.MoveSpeed:
                 stats.AddMoveSpeedMultiplier(0.10f);
+                break;
+
+            case UpgradeType.ShotgunPelletNum:
+                shotgun.pellets += 2;
+                break;
+
+            case UpgradeType.gainMaxHealth:
+                stats.maxHP += 30;
+                break;
+            
+            case UpgradeType.Healing:
                 break;
         }
     }
