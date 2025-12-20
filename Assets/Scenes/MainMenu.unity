@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   audioSource: {fileID: 1803906320}
   Shotgun: {fileID: 8300000, guid: 7d1be4f451c843c47a452f8ddcb2eacb, type: 3}
-  Sniper: {fileID: 8300000, guid: 7d1be4f451c843c47a452f8ddcb2eacb, type: 3}
+  Sniper: {fileID: 8300000, guid: 8b6269f9153c21446ba8216d38093ae4, type: 3}
 --- !u!82 &1803906320
 AudioSource:
   m_ObjectHideFlags: 0
