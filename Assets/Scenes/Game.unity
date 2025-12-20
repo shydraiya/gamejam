@@ -678,8 +678,8 @@ MonoBehaviour:
   player: {fileID: 2117576545}
   playerMove: {fileID: 2117576547}
   toggleKey: 32
-  topHeight: 5
-  topOrthoSize: 5
+  topHeight: 7
+  topOrthoSize: 7
   fpsOffset: {x: 0, y: 1.6, z: 0}
   fpsFov: 60
   mouseSensitivity: 2
@@ -2571,6 +2571,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::playerMove
   stats: {fileID: 2117576553}
   moveBasis: {fileID: 330585546}
+  dashKey: 304
+  dashMultiplier: 5
+  dashDuration: 0.15
+  dashCooldown: 0.8
 --- !u!114 &2117576548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,6 +2639,7 @@ MonoBehaviour:
   hp: 100
   baseMoveSpeed: 6
   moveSpeedMultiplier: 1
+  invulnerable: 0
 --- !u!114 &2117576554
 MonoBehaviour:
   m_ObjectHideFlags: 0
