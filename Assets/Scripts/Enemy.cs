@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
-
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyConfig config;
