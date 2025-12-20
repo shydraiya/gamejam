@@ -40,6 +40,10 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void InstantKill(){
+        TakeDamage(100, false);
+    }
+
     protected virtual void OnSpawned() { }
     protected virtual void OnDied() { }
 }
