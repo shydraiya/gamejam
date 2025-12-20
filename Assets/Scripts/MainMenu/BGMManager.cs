@@ -14,6 +14,9 @@ public class BGMManager : MonoBehaviour
     [Header("GameOver BGM")]
     public AudioClip gameOverBGM;
 
+    [Header("Credit BGM")]
+    public AudioClip creditBGM;
+
     void Awake()
     {
         if (Instance == null)
@@ -48,6 +51,9 @@ public class BGMManager : MonoBehaviour
 
             case "GameOver":
                 PlayBGM(gameOverBGM);
+                break;
+            case "Story":
+                PlayBGM(creditBGM);
                 break;
         }
     }

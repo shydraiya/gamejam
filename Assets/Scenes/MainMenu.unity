@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option
+  m_text: Story
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   gameSceneName: Game
+  storySceneName: Story
 --- !u!4 &650619216
 Transform:
   m_ObjectHideFlags: 0
@@ -1792,7 +1793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1806306787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 650619215}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: Story
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1806306787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1867,6 +1880,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5e9526488ddc9c54fa6c494e6f6461dd, type: 3}
   - {fileID: 8300000, guid: 11ffce0a4f4fe524aba6bd89f6936dd8, type: 3}
   gameOverBGM: {fileID: 8300000, guid: 5bf3dfe3ce4ba1746a3fe3db1d85188f, type: 3}
+  creditBGM: {fileID: 8300000, guid: 03a688f2e0dad7640a29eaf45549fd7d, type: 3}
 --- !u!82 &2117004719
 AudioSource:
   m_ObjectHideFlags: 0
