@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,9 +13,50 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnMob), 0f, config.spawnIntervalMob);
-        InvokeRepeating(nameof(SpawnBoss), 0f, config.spawnIntervalBoss);
+        StartCoroutine(SpawnMobRoutine());
+        StartCoroutine(SpawnBossRoutine());
+        // InvokeRepeating(nameof(SpawnMob), 0f, config.spawnIntervalMob);
+        // InvokeRepeating(nameof(SpawnBoss), 0f, config.spawnIntervalBoss);
     }
+
+    IEnumerator SpawnMobRoutine()
+    {
+        float elapsed = 0f;
+
+        while (true)
+        {
+            float interval = Mathf.Max(
+                0.25f,
+                config.spawnIntervalMob / (1f + elapsed * 0.05f)
+            );
+
+            SpawnMob();
+            yield return new WaitForSeconds(interval);
+
+            elapsed += interval;
+        }
+    }
+
+
+    IEnumerator SpawnBossRoutine()
+    {
+        float elapsed = 0f;
+    
+        while (true)
+        {
+            float interval = Mathf.Max(
+                0.25f,
+                config.spawnIntervalBoss / (1f + elapsed * 0.05f)
+            );
+    
+            SpawnBoss();
+            yield return new WaitForSeconds(interval);
+    
+            elapsed += interval;
+        }
+    }
+
+
 
     private void SpawnMob()
     {
