@@ -26,8 +26,8 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             float interval = Mathf.Max(
-                0.25f,
-                config.spawnIntervalMob / (1f + elapsed * 0.05f)
+                2.0f,
+                config.spawnIntervalMob / (1f + elapsed * 0.01f)
             );
 
             SpawnMob();
