@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3272328735125158257}
   - component: {fileID: 7156508450226049070}
   - component: {fileID: 8428792279393197105}
+  - component: {fileID: 4248105716982259935}
   m_Layer: 3
   m_Name: Boss
   m_TagString: Untagged
@@ -127,3 +128,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4248105716982259935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312391891060351082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3de99e724a59947bf21c5d83a62162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnTouch
+  hitInterval: 0.5
+  config: {fileID: 11400000, guid: c4d9a2db2a2ce0642a24b271d038a5d8, type: 2}
