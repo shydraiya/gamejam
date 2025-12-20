@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f9222fcb597d64bae888125b68a695, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  maxHp: 15
+  maxHp: 50
   moveSpeed: 0.5
   xp_reward: 1
-  mob_damage: 10
+  mob_damage: 5
   areaDamageMultiplier: 0.001

@@ -2642,7 +2642,7 @@ MonoBehaviour:
   pellets: 1
   spreadAngle: 0
   bulletSpeed: 100
-  damagePerPellet: 200
+  damagePerPellet: 10
   spawnHeight: 0
   spawnForwardOffset: 0.5
   hitMask:
@@ -2660,8 +2660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473e509572c9a134e91fbd6d96f963d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  maxHP: 100
-  hp: 100
+  maxHP: 20
+  hp: 20
   baseMoveSpeed: 6
   moveSpeedMultiplier: 1
   invulnerable: 0
@@ -2724,10 +2724,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f563ef9cc1b0c2419a146fbd27f4b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RigidbodyClampToPlane
-  minX: -25.7
-  maxX: 25.7
-  minZ: -25.7
-  maxZ: 25.7
+  minX: -25.4
+  maxX: 25.4
+  minZ: -25.4
+  maxZ: 25.4
 --- !u!1 &2121367389
 GameObject:
   m_ObjectHideFlags: 0

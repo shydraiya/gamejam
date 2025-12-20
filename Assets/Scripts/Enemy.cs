@@ -5,6 +5,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private EnemyConfig config;
     [SerializeField] private CameraModeController cameraMode;
 
+    private DamageFlash damageFlash;
     PlayerProgression playerProgression;
 
     protected float Hp { get; private set; }
@@ -12,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Awake()
     {
+        damageFlash = GetComponent<DamageFlash>();
         Hp = config.maxHp;
         playerProgression = FindFirstObjectByType<PlayerProgression>();
         OnSpawned();
@@ -24,13 +26,14 @@ public abstract class Enemy : MonoBehaviour
         float multiplier = (!isFPS) ? config.areaDamageMultiplier : 1;
         Hp -= damage * multiplier;
         Debug.Log($"[Enemy] Dealt {damage * multiplier}, fps:{isFPS}");
+        damageFlash.Flash();
         if (Hp <= 0f) Die();
     }
 
     protected virtual void Die()
     {
         OnDied();
-        if(playerProgression != null)
+        if (playerProgression != null)
         {
             playerProgression.AddXP(config.xp_reward);
         }
