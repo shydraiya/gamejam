@@ -18,17 +18,23 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnMob()
     {
-        Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
-        Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
+        for (int i = 0; i < config.spawnIntervalMobCnt; i++)
+        {
+            Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
+            Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        }
     }
 
     private void SpawnBoss()
     {
-        Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
-        Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
+        for (int i = 0; i < config.spawnIntervalBossCnt; i++)
+        {
+            Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
+            Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
 
-        Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+            Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+        }
     }
 }

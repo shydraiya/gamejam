@@ -31,10 +31,63 @@ public class CameraModeController : MonoBehaviour
     public LayerMask hitMask = ~0;          // 기본: 전부 맞음
     public KeyCode fireKey = KeyCode.Mouse0; // 좌클릭
 
+    [Header("Top->FPS Aim")]
+    public LayerMask groundMask;          // 바닥 레이어(예: Ground)
+    public float defaultFpsPitch = 0f;    // 전환 시 기본 pitch
 
     Camera cam;
     bool isFPS = false;
-    float pitch = 0f;
+    float pitch = -5f;
+
+    bool TryGetMouseWorldPoint(out Vector3 point)
+    {
+        point = default;
+
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        // 1) 바닥 콜라이더가 있으면 그걸 맞추는 게 가장 안정적
+        if (Physics.Raycast(ray, out RaycastHit hit, 500f, groundMask, QueryTriggerInteraction.Ignore))
+        {
+            point = hit.point;
+            return true;
+        }
+
+        // 2) 바닥 콜라이더가 없다면, 수평 Plane(y = player.y)로 계산
+        if (player != null)
+        {
+            Plane plane = new Plane(Vector3.up, new Vector3(0f, player.position.y, 0f));
+            if (plane.Raycast(ray, out float enter))
+            {
+                point = ray.GetPoint(enter);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void SwitchToFPSUsingMouseAim()
+    {
+        // 마우스가 가리키는 월드 포인트를 얻고
+        if (TryGetMouseWorldPoint(out Vector3 worldPoint))
+        {
+            Vector3 dir = worldPoint - player.position;
+            dir.y = 0f; // 수평 회전만
+            if (dir.sqrMagnitude > 0.0001f)
+            {
+                player.rotation = Quaternion.LookRotation(dir.normalized, Vector3.up);
+            }
+        }
+
+        // pitch는 전환 시 기본값으로
+        pitch = Mathf.Clamp(defaultFpsPitch, -80f, 80f);
+
+        // 카메라 회전 동기화(즉시 자연스럽게)
+        Quaternion yawRot = Quaternion.Euler(0f, player.eulerAngles.y, 0f);
+        Quaternion pitchRot = Quaternion.Euler(pitch, 0f, 0f);
+        transform.rotation = yawRot * pitchRot;
+    }
+
 
     void Awake()
     {
@@ -53,11 +106,20 @@ public class CameraModeController : MonoBehaviour
         {
             isFPS = !isFPS;
             Debug.Log($"Camera mode changed. isFPS={isFPS}");
-            if (isFPS) ApplyFPS();
-            else ApplyTopView();
+
+            if (isFPS)
+            {
+                // 전환 직전: TopView의 마우스 위치 기반으로 시점 맞추기
+                SwitchToFPSUsingMouseAim();
+                ApplyFPS();
+            }
+            else
+            {
+                ApplyTopView();
+            }
 
             if (playerMove)
-                playerMove.SetMode(isFPS, transform); // FPS 이동 기준은 "카메라(transform)"
+                playerMove.SetMode(isFPS, transform);
         }
 
         if (isFPS)
