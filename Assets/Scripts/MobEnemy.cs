@@ -1,31 +1,39 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class MobEnemy : Enemy
 {
     private Transform target;
+    private Rigidbody rb;
 
     protected override void OnSpawned()
     {
-        // 플레이어 찾기 (태그 사용 권장)
+        rb = GetComponent<Rigidbody>();
+
+        // 물리 세팅(필요에 맞게)
+        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezeRotation; 
+        // 탑다운이면 보통 Y축도 고정하지 않고 위치 이동만 하게 둬도 됩니다.
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            target = player.transform;
-        }
+        if (player != null) target = player.transform;
     }
 
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (target == null) return;
 
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * Config.moveSpeed * Time.deltaTime;
+        Vector3 toTarget = target.position - rb.position;
+        if (toTarget.sqrMagnitude < 0.0001f) return;
+
+        Vector3 direction = toTarget.normalized;
+        Vector3 nextPos = rb.position + direction * Config.moveSpeed * Time.fixedDeltaTime;
+
+        rb.MovePosition(nextPos);
     }
 
     protected override void OnDied()
     {
         Debug.Log($"{name} died");
     }
-
 }
