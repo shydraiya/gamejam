@@ -64,8 +64,10 @@ public class CameraModeController : MonoBehaviour
             FPSLook();
             transform.position = player.position + fpsOffset;
 
-            if (Input.GetKeyDown(fireKey))
+            if (Input.GetKeyDown(fireKey)){
                 FireRay();
+                Debug.Log("sniping!");
+            }
         }
     }
 

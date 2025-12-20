@@ -479,7 +479,7 @@ MonoBehaviour:
   damage: 50
   hitMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   fireKey: 323
 --- !u!1 &410087039
 GameObject:
@@ -669,7 +669,8 @@ GameObject:
   - component: {fileID: 902211491}
   - component: {fileID: 902211490}
   - component: {fileID: 902211489}
-  m_Layer: 0
+  - component: {fileID: 902211493}
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +692,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -769,6 +770,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902211493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902211488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154bf8faeed50db48bb96f684711a937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
+  config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
 --- !u!1 &964022559
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +795,8 @@ GameObject:
   - component: {fileID: 964022562}
   - component: {fileID: 964022561}
   - component: {fileID: 964022560}
-  m_Layer: 0
+  - component: {fileID: 964022564}
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +818,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -881,6 +896,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964022564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964022559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154bf8faeed50db48bb96f684711a937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
+  config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
 --- !u!1 &1276346744
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +921,8 @@ GameObject:
   - component: {fileID: 1276346747}
   - component: {fileID: 1276346746}
   - component: {fileID: 1276346745}
-  m_Layer: 0
+  - component: {fileID: 1276346749}
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +944,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -993,6 +1022,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276346749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276346744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154bf8faeed50db48bb96f684711a937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
+  config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
 --- !u!1 &1617523832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1047,8 @@ GameObject:
   - component: {fileID: 1617523835}
   - component: {fileID: 1617523834}
   - component: {fileID: 1617523833}
-  m_Layer: 0
+  - component: {fileID: 1617523837}
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1070,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1105,6 +1148,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1617523837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617523832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154bf8faeed50db48bb96f684711a937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobEnemy
+  config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
 --- !u!1 &2117576541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1175,8 @@ GameObject:
   - component: {fileID: 2117576542}
   - component: {fileID: 2117576546}
   - component: {fileID: 2117576547}
+  - component: {fileID: 2117576549}
+  - component: {fileID: 2117576548}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1261,6 +1319,48 @@ MonoBehaviour:
   topMoveSpeed: 6
   fpsMoveSpeed: 4
   moveBasis: {fileID: 330585546}
+--- !u!114 &2117576548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117576541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da546fedc46e664ebdde682315ac129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shotgun
+  bulletPrefab: {fileID: 705210549380223954, guid: 6be2ca5962aa61447a8e3bde8a8e6887, type: 3}
+  fireInterval: 0.6
+  pellets: 6
+  spreadAngle: 18
+  bulletSpeed: 14
+  damagePerPellet: 12
+  spawnHeight: 0
+  spawnForwardOffset: 0.5
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &2117576549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117576541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d8c25ebed882b40a74f7838b19f294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponController
+  mainCam: {fileID: 330585545}
+  camMode: {fileID: 330585548}
+  player: {fileID: 2117576545}
+  groundY: 0
+  topViewWeapon: {fileID: 2117576548}
+  fpsWeapon: {fileID: 0}
+  fireKey: 323
 --- !u!1001 &2365427713638676603
 PrefabInstance:
   m_ObjectHideFlags: 0
