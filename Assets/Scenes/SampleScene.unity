@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 2117576547}
   - component: {fileID: 2117576549}
   - component: {fileID: 2117576548}
+  - component: {fileID: 2117576552}
   - component: {fileID: 2117576551}
   - component: {fileID: 2117576550}
   m_Layer: 0
@@ -1361,7 +1362,7 @@ MonoBehaviour:
   player: {fileID: 2117576545}
   groundY: 0
   topViewWeapon: {fileID: 2117576548}
-  fpsWeapon: {fileID: 0}
+  fpsWeapon: {fileID: 2117576552}
   fireKey: 323
 --- !u!114 &2117576550
 MonoBehaviour:
@@ -1393,6 +1394,29 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!114 &2117576552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117576541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d882c533913524e8988a19e52336f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  bulletPrefab: {fileID: 705210549380223954, guid: 6be2ca5962aa61447a8e3bde8a8e6887, type: 3}
+  fireInterval: 0.6
+  pellets: 1
+  spreadAngle: 18
+  bulletSpeed: 100
+  damagePerPellet: 200
+  spawnHeight: 0
+  spawnForwardOffset: 0.5
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &2365427713638676603
 PrefabInstance:
   m_ObjectHideFlags: 0
