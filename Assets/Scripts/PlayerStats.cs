@@ -13,6 +13,15 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float moveSpeedMultiplier = 1f;
 
     private DamageFlash damageFlash;
+    [SerializeField] private bool invulnerable = false;
+    public bool Invulnerable => invulnerable;
+
+    public void SetInvulnerable(bool value)
+    {
+        invulnerable = value;
+    }
+
+
     public float MaxHP => maxHP;
     public float HP => hp;
 
@@ -41,6 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (invulnerable) return;
         if (amount <= 0f) return;
         float prev = hp;
         hp = Mathf.Max(0f, hp - amount);

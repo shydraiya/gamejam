@@ -25,6 +25,7 @@ public class PlayerProgression : MonoBehaviour
 
     void Start()
     {
+        
     }
 
 
