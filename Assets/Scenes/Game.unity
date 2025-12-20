@@ -2595,7 +2595,7 @@ MonoBehaviour:
   topViewWeapon: {fileID: 2117576548}
   fpsWeapon: {fileID: 2117576552}
   fireKey: 323
-  killRadius: 5
+  killRadius: 8
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
