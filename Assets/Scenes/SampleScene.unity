@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 2117576549}
   - component: {fileID: 2117576548}
   - component: {fileID: 2117576552}
+  - component: {fileID: 2117576553}
   - component: {fileID: 2117576551}
   - component: {fileID: 2117576550}
   m_Layer: 0
@@ -1323,8 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce41e94b286d82443ad1dd7085cfe703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerMove
-  topMoveSpeed: 6
-  fpsMoveSpeed: 4
+  stats: {fileID: 2117576553}
   moveBasis: {fileID: 330585546}
 --- !u!114 &2117576548
 MonoBehaviour:
@@ -1423,6 +1423,22 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2117576553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117576541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e509572c9a134e91fbd6d96f963d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHP: 100
+  hp: 100
+  baseMoveSpeed: 6
+  moveSpeedMultiplier: 1
 --- !u!1001 &2365427713638676603
 PrefabInstance:
   m_ObjectHideFlags: 0
