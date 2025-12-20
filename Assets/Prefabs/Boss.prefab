@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7156508450226049070}
   - component: {fileID: 8428792279393197105}
   - component: {fileID: 4248105716982259935}
+  - component: {fileID: 4262802493196952091}
   m_Layer: 3
   m_Name: Boss
   m_TagString: Untagged
@@ -142,3 +143,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnTouch
   hitInterval: 0.5
   config: {fileID: 11400000, guid: c4d9a2db2a2ce0642a24b271d038a5d8, type: 2}
+--- !u!114 &4262802493196952091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312391891060351082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cb208c2d23b4c4f8c6053fca3198eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  targetRenderer: {fileID: 3272328735125158257}
+  colorProperty: _BaseColor
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.08

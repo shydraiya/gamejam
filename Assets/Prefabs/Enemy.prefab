@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5146666796637800861}
   - component: {fileID: 179027335775750531}
   - component: {fileID: -4046290773095055463}
+  - component: {fileID: 3827492464053958496}
   - component: {fileID: 7670025039044542925}
   - component: {fileID: -6587929308582876681}
   m_Layer: 3
@@ -144,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnTouch
   hitInterval: 0.5
   config: {fileID: 11400000, guid: 37d22e2997d17d54fbd1ca73d2811c33, type: 2}
+--- !u!114 &3827492464053958496
+MonoBehaviour:
 --- !u!54 &7670025039044542925
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,6 +154,15 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4839389548450981954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cb208c2d23b4c4f8c6053fca3198eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  targetRenderer: {fileID: 7579743440722424180}
+  colorProperty: _BaseColor
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.08
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
