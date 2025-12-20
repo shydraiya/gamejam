@@ -39,7 +39,7 @@ public class Shotgun : MonoBehaviour, IWeapon
         baseDir.Normalize();
 
         Vector3 origin = owner.transform.position + Vector3.up * spawnHeight + baseDir * spawnForwardOffset;
-
+        Debug.DrawRay(origin, Vector3.up * 0.2f, Color.green, 1f);
         for (int i = 0; i < pellets; i++)
         {
             float t = (pellets == 1) ? 0.5f : (i / (pellets - 1f));
