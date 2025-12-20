@@ -54,5 +54,6 @@ public class Shotgun : MonoBehaviour, IWeapon
         }
 
         nextFireTime = Time.time + fireInterval;
+        SFXManager.Instance.PlaySFX(SFXManager.Instance.Shotgun);
     }
 }

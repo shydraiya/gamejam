@@ -30,8 +30,8 @@ public class Sniper : MonoBehaviour, IWeapon
 
     public void SetOwner(PlayerWeaponController owner) => this.owner = owner;
     public void SetActive(bool active) => this.active = active;
-    
-    
+
+
     public void Fire()
     {
         if (!active || owner == null || bulletPrefab == null) return;
@@ -58,5 +58,6 @@ public class Sniper : MonoBehaviour, IWeapon
         }
 
         nextFireTime = Time.time + fireInterval;
+        SFXManager.Instance.PlaySFX(SFXManager.Instance.Sniper);
     }
 }
