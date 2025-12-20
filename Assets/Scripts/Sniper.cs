@@ -11,7 +11,7 @@ public class Sniper : MonoBehaviour, IWeapon
     [Header("Fire")]
     public float fireInterval = 0.6f;
     public int pellets = 1;
-    public float spreadAngle = 18f;      // 도 단위, Y축 기준 퍼짐
+    public float spreadAngle = 0f;      // 도 단위, Y축 기준 퍼짐
     public float bulletSpeed = 100f;
     public float damagePerPellet = 200f;
 
