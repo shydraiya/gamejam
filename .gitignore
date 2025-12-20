@@ -15,5 +15,6 @@ Thumbs.db
 .idea/
 *.csproj
 *.sln
+*.slnx
 *.user
 *.userprefs
