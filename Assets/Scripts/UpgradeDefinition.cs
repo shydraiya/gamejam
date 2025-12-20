@@ -10,7 +10,8 @@ public enum UpgradeType
     MoveSpeed,
     ShotgunPelletNum,
     gainMaxHealth,
-    Healing
+    Healing,
+    Bomb
 }
 
 [Serializable]

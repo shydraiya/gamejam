@@ -17,6 +17,28 @@ public class PlayerWeaponController : MonoBehaviour
 
     public Vector3 AimDirection { get; private set; } = Vector3.forward;
 
+    [Header ("Bomb")]
+    [SerializeField] private float killRadius = 5f;
+    [SerializeField] private LayerMask enemyLayer;
+
+    public void KillEnemiesInRange()
+    {
+        Collider[] hits = Physics.OverlapSphere(
+            transform.position,
+            killRadius,
+            enemyLayer
+        );
+
+        foreach (var hit in hits)
+        {
+            Enemy enemy = hit.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.InstantKill(); // 또는 enemy.InstantKill();
+            }
+        }
+    }
+
     IWeapon topW;
     IWeapon fpsW;
 

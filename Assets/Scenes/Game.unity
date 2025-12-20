@@ -1429,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2d371e786f01442847d7c6bad458d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  wc: {fileID: 2117576549}
   stats: {fileID: 2117576553}
   shotgun: {fileID: 2117576548}
   sniper: {fileID: 2117576552}
@@ -2594,6 +2595,10 @@ MonoBehaviour:
   topViewWeapon: {fileID: 2117576548}
   fpsWeapon: {fileID: 2117576552}
   fireKey: 323
+  killRadius: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &2117576550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2642,7 +2647,7 @@ MonoBehaviour:
   pellets: 1
   spreadAngle: 0
   bulletSpeed: 100
-  damagePerPellet: 10
+  damagePerPellet: 200
   spawnHeight: 0
   spawnForwardOffset: 0.5
   hitMask:
@@ -2660,8 +2665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473e509572c9a134e91fbd6d96f963d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  maxHP: 20
-  hp: 20
+  maxHP: 100
+  hp: 100
+  hpRegenPerSecond: 0
+  enableRegen: 0
   baseMoveSpeed: 6
   moveSpeedMultiplier: 1
   invulnerable: 0
@@ -2724,10 +2731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f563ef9cc1b0c2419a146fbd27f4b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RigidbodyClampToPlane
-  minX: -25.4
-  maxX: 25.4
-  minZ: -25.4
-  maxZ: 25.4
+  minX: -25.7
+  maxX: 25.7
+  minZ: -25.7
+  maxZ: 25.7
 --- !u!1 &2121367389
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float maxHP = 100f;
     [SerializeField] private float hp = 100f;
 
+    [Header("Regen")]
+    [SerializeField] private float hpRegenPerSecond = 0f;
+    [SerializeField] private bool enableRegen = false;
+
+    private Coroutine regenCoroutine;
+
+
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed = 6f;
     [SerializeField] public float moveSpeedMultiplier = 1f;
@@ -31,12 +38,34 @@ public class PlayerStats : MonoBehaviour
     public event Action<float, float> OnHealthChanged; // (hp, maxHP)
     public event Action OnDeath;
 
+    private System.Collections.IEnumerator HpRegenRoutine()
+    {
+        var wait = new WaitForSeconds(1f); // timeScale 영향 받음
+        while (true)
+        {
+            yield return wait;
+
+            if (!enableRegen) continue;
+            if (hp <= 0f) continue;        // 죽었으면 회복 X
+            if (hp >= maxHP) continue;     // 풀피면 회복 X
+
+            Heal(hpRegenPerSecond);
+        }
+    }
+
+    public void AddHpRegen(float amount){
+        if(!enableRegen) enableRegen = true;
+        hpRegenPerSecond += amount;
+    }
+
+
     void Awake()
     {
         damageFlash = GetComponent<DamageFlash>();
         // 안전 초기화
         hp = Mathf.Clamp(hp, 0f, maxHP);
         OnHealthChanged?.Invoke(hp, maxHP);
+        regenCoroutine = StartCoroutine(HpRegenRoutine());
     }
 
     public void Heal(float amount)

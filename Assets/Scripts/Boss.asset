@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
   maxHp: 50
-  moveSpeed: 0.5
+  moveSpeed: 2.5
   xp_reward: 1
   mob_damage: 5
   areaDamageMultiplier: 0.001
