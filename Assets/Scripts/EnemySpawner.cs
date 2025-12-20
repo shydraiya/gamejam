@@ -2,21 +2,33 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private const float SPAWN_INTERVAL = 2f;
-    private const float SPAWN_RADIUS = 5f;
-
     [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private Enemy bossPrefab;
+
+    [SerializeField] private SpawnerConfig config;
+
+    protected float Hp { get; private set; }
+    protected SpawnerConfig Config => config;
 
     private void Start()
     {
-        InvokeRepeating(nameof(Spawn), 0f, SPAWN_INTERVAL);
+        InvokeRepeating(nameof(SpawnMob), 0f, config.spawnIntervalMob);
+        InvokeRepeating(nameof(SpawnBoss), 0f, config.spawnIntervalBoss);
     }
 
-    private void Spawn()
+    private void SpawnMob()
     {
-        Vector2 randomOffset = Random.insideUnitCircle * SPAWN_RADIUS;
+        Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
         Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
 
         Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+    }
+
+    private void SpawnBoss()
+    {
+        Vector2 randomOffset = Random.insideUnitCircle * config.spawnRadius;
+        Vector3 spawnPos = transform.position + new Vector3(randomOffset.x, 0f, randomOffset.y);
+
+        Instantiate(bossPrefab, spawnPos, Quaternion.identity);
     }
 }

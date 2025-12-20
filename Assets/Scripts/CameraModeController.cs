@@ -52,6 +52,7 @@ public class CameraModeController : MonoBehaviour
         if (Input.GetKeyDown(toggleKey))
         {
             isFPS = !isFPS;
+            Debug.Log($"Camera mode changed. isFPS={isFPS}");
             if (isFPS) ApplyFPS();
             else ApplyTopView();
 
@@ -151,7 +152,7 @@ public class CameraModeController : MonoBehaviour
             Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, isFPS);
             }
 
             // 2) “강한 적”만 약점(WeakSpot) 맞춰야 데미지 주는 식으로 확장 가능

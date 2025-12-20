@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour, IWeapon
 {
+    [SerializeField] private CameraModeController cameraMode;
     [Header("Prefab")]
     public Bullet bulletPrefab;
 
@@ -49,7 +50,7 @@ public class Shotgun : MonoBehaviour, IWeapon
 
             // Bullet 생성 + 초기화
             Bullet b = Instantiate(bulletPrefab, origin, Quaternion.LookRotation(dir, Vector3.up));
-            b.Init(dir * bulletSpeed, damagePerPellet, hitMask);
+            b.Init(dir * bulletSpeed, damagePerPellet, hitMask, cameraMode);
         }
 
         nextFireTime = Time.time + fireInterval;

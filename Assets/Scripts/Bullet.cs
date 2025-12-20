@@ -3,10 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
+
     public float lifeTime = 2.0f;
     public LayerMask hitMask = ~0;
 
     float damage;
+    public bool isFPS;
     Rigidbody rb;
 
     void Awake()
@@ -15,12 +17,13 @@ public class Bullet : MonoBehaviour
         rb.useGravity = false;
     }
 
-    public void Init(Vector3 velocity, float damage, LayerMask hitMask)
+    public void Init(Vector3 velocity, float damage, LayerMask hitMask, CameraModeController cameraMode)
     {
         this.damage = damage;
         this.hitMask = hitMask;
 
         rb.linearVelocity = velocity;
+        isFPS = cameraMode.IsFPS;
 
         CancelInvoke(nameof(Die));
         Invoke(nameof(Die), lifeTime);
@@ -44,10 +47,11 @@ public class Bullet : MonoBehaviour
         if ((hitMask.value & layerBit) == 0)
             return;
 
+        Debug.Log($"bullet hit{isFPS}");
         Enemy enemy = col.GetComponentInParent<Enemy>();
-        if (enemy != null){
-            enemy.TakeDamage(damage);
-            Debug.Log($"bullet hit");
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage, this.isFPS);
         }
     }
 
