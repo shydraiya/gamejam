@@ -45,6 +45,8 @@ public class GameOverController : MonoBehaviour
     IEnumerator LoadGameOver()
     {
         yield return new WaitForSeconds(1f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("GameOver");
     }
 }

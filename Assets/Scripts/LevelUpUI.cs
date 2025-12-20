@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 using System.Collections.Generic;
 
 public class LevelUpUI : MonoBehaviour
@@ -8,12 +9,18 @@ public class LevelUpUI : MonoBehaviour
     public Button[] buttons;
     public Text[] texts;
 
+    private CursorLockMode prevCursorState;
+    private bool prevCursorVisibility;
     List<UpgradeOption> current;
 
     public void Show()
     {
         Time.timeScale = 0f;
         gameObject.SetActive(true);
+        prevCursorState = Cursor.lockState;
+        prevCursorVisibility = Cursor.visible;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         current = upgradeManager.GetRandomOptions(3);
 
@@ -34,6 +41,8 @@ public class LevelUpUI : MonoBehaviour
     void Hide()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = prevCursorState;
+        Cursor.visible = prevCursorVisibility;
         gameObject.SetActive(false);
     }
 }
