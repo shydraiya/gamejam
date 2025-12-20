@@ -53,7 +53,7 @@ public class PlayerWeaponController : MonoBehaviour
         }
     }
 
-    Vector3 GetFPSAimDirection()
+    public Vector3 GetFPSAimDirection()
     {
         // FPS에서는 카메라 정면(피치 포함)
         Vector3 dir = mainCam.transform.forward;
@@ -61,7 +61,7 @@ public class PlayerWeaponController : MonoBehaviour
         return dir.normalized;
     }
 
-    Vector3 GetTopViewMouseAimDirection()
+    public Vector3 GetTopViewMouseAimDirection()
     {
         // 탑뷰에서는 마우스가 가리키는 바닥 점을 기준으로 방향 계산
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
