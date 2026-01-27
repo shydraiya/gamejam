@@ -7,7 +7,7 @@ public class CinematicController : MonoBehaviour
 
     public float scrollSpeed = 300f;
     public float endY = 1800f;
-    public string nextSceneName = "MainMenu";
+
 
     void Update()
     {
