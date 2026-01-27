@@ -27,7 +27,7 @@ public class MainMenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt(StartModeKey, 0);
         PlayerPrefs.Save();
-        SceneManager.LoadScene(storySceneName); // ✅ 수정
+        SceneManager.LoadScene(storySceneName); 
     }
 
     public void Quit()

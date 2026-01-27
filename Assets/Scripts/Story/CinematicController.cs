@@ -15,7 +15,7 @@ public class CinematicController : MonoBehaviour
 
         if (textTransform.anchoredPosition.y >= endY)
         {
-            SceneManager.LoadScene(nextSceneName);
+            GameFlowManager.Instance.GoToMainMenu();
         }
     }
 }
