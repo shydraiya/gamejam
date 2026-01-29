@@ -97,7 +97,7 @@ public class PlayerMoveController : MonoBehaviour
                 nextDashTime = Time.time + dashCooldown;
                 isDashing = true;
 
-                // ✅ 무적 시작
+                // 무적 시작
                 if (stats != null) stats.SetInvulnerable(true);
             }
         }

@@ -32,7 +32,7 @@ public class GameFlowManager : MonoBehaviour
 
     // observers
     // 외부에서 구독해서 사용
-    public event Action<GameState> OnStateChanged; //게임 상태 변경시
+    public event Action<GameState> OnStateChanged; // 게임 상태 변경시
     public event Action<float> OnTimeChanged; // elapsed seconds
     public event Action<float> OnGameOver;    // final time
 
