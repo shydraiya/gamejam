@@ -7,7 +7,7 @@ public class GameOverTimeUI : MonoBehaviour
 
     void Start()
     {
-        float sec = PlayerPrefs.GetFloat("SurvivedTimeSec", 0f);
+        float sec = GameFlowManager.Instance.ElapsedTime;
         int m = Mathf.FloorToInt(sec / 60f);
         int s = Mathf.FloorToInt(sec % 60f);
         

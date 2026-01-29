@@ -5,7 +5,7 @@ using System;
 public class PlayerStats : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] public float maxHP = 100f;
+    public float maxHP = 100f;
     [SerializeField] private float hp = 100f;
 
     [Header("Regen")]
@@ -17,10 +17,13 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed = 6f;
-    [SerializeField] public float moveSpeedMultiplier = 1f;
+    [SerializeField] private float moveSpeedMultiplier = 1f;
 
     private DamageFlash damageFlash;
     [SerializeField] private bool invulnerable = false;
+
+    [SerializeField] private bool isDead = false;
+
     public bool Invulnerable => invulnerable;
 
     public void SetInvulnerable(bool value)
@@ -94,8 +97,11 @@ public class PlayerStats : MonoBehaviour
         damageFlash.Flash();
 
         // hp가 0이 되면
-        if (hp <= 0f)
+        if (hp <= 0f && !isDead){
+            isDead = true;
             OnDeath?.Invoke();
+            GameFlowManager.Instance.TriggerGameOver();
+        }
     }
 
     // 업그레이드에서 쓰기 좋은 API

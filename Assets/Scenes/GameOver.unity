@@ -466,8 +466,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1028760968}
-        m_TargetAssemblyTypeName: GameFlowManager, Assembly-CSharp
+      - m_Target: {fileID: 689843263}
+        m_TargetAssemblyTypeName: GameOverButtonWrapper, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -820,6 +820,50 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &689843262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689843264}
+  - component: {fileID: 689843263}
+  m_Layer: 0
+  m_Name: GameOverButtonWrapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &689843263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689843262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aaa218b711ac040b32ec5e055169b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverButtonWrapper
+--- !u!4 &689843264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689843262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.38704, y: 0, z: -13.19684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860278517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,9 +1226,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1028760968}
-        m_TargetAssemblyTypeName: GameFlowManager, Assembly-CSharp
-        m_MethodName: Retry
+      - m_Target: {fileID: 689843263}
+        m_TargetAssemblyTypeName: GameOverButtonWrapper, Assembly-CSharp
+        m_MethodName: retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1805,9 +1849,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1028760968}
-        m_TargetAssemblyTypeName: GameFlowManager, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+      - m_Target: {fileID: 689843263}
+        m_TargetAssemblyTypeName: GameOverButtonWrapper, Assembly-CSharp
+        m_MethodName: ToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1939,3 +1983,4 @@ SceneRoots:
   - {fileID: 165415807}
   - {fileID: 860278520}
   - {fileID: 1028760969}
+  - {fileID: 689843264}
