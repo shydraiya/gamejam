@@ -10,7 +10,7 @@ public class GameOverTimeUI : MonoBehaviour
         float sec = PlayerPrefs.GetFloat("SurvivedTimeSec", 0f);
         int m = Mathf.FloorToInt(sec / 60f);
         int s = Mathf.FloorToInt(sec % 60f);
-
+        
         if (timeText) timeText.text = $"{m:00}:{s:00}";
     }
 }

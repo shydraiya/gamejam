@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 1053191796}
   - component: {fileID: 1053191795}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text (time record)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 2050300110}
   - component: {fileID: 2050300109}
   m_Layer: 5
-  m_Name: GO
+  m_Name: GO (background img)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

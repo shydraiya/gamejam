@@ -90,8 +90,10 @@ public class PlayerStats : MonoBehaviour
         Color baseColor = Color.Lerp(Color.red, Color.green, t);
         damageFlash.SetBaseColor(baseColor);
 
-        // ⭐ 이 줄이 없으면 절대 안 깜빡임
+        // 피격 이펙트 (반짝임)
         damageFlash.Flash();
+
+        // hp가 0이 되면
         if (hp <= 0f)
             OnDeath?.Invoke();
     }

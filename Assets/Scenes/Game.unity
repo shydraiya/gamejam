@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 283233830}
   - component: {fileID: 283233829}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas (Timer)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 957477226}
   - component: {fileID: 957477228}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text (HP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1839,7 +1839,7 @@ GameObject:
   - component: {fileID: 1560748418}
   - component: {fileID: 1560748421}
   - component: {fileID: 1560748420}
-  - component: {fileID: 1560748419}
+  - component: {fileID: 1560748422}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -1866,20 +1866,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1560748419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560748417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac39b62d7191e44cbd9d856414a33cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timerText: {fileID: 1560748420}
-  useUnscaledTime: 0
 --- !u!114 &1560748420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,6 +1966,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560748417}
   m_CullTransparentMesh: 1
+--- !u!114 &1560748422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560748417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a794443b2550fa4c8e057788b733f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDTimerUI
+  timerText: {fileID: 1560748420}
 --- !u!1 &1633117042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,7 +2119,7 @@ GameObject:
   - component: {fileID: 1674167276}
   - component: {fileID: 1674167275}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas (Level UP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2649,7 +2648,7 @@ GameObject:
   - component: {fileID: 2095445738}
   - component: {fileID: 2095445737}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas (HP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3259,7 +3258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7404052533167603638, guid: 8c328d767ba73ac4b853f4d297426874, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: Canvas (crosshair)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
